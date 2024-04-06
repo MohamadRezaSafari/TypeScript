@@ -1,6 +1,13 @@
+import { NavLink } from "react-router-dom";
 
 
 function Header(){
+
+    const linkClass = ({ isActive }) => 
+        isActive
+        ? 'bg-color'
+        : 'bg-info rounded-md text-white px-3 py-2';
+
     return (
         <>
             <header>
@@ -11,10 +18,9 @@ function Header(){
                 </a>
 
                 <nav className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-                    <a className="me-3 py-2 text-dark text-decoration-none" href="#">Features</a>
-                    <a className="me-3 py-2 text-dark text-decoration-none" href="#">Enterprise</a>
-                    <a className="me-3 py-2 text-dark text-decoration-none" href="#">Support</a>
-                    <a className="py-2 text-dark text-decoration-none" href="#">Pricing</a>
+                    <NavLink className={linkClass} to="/">Home</NavLink>
+                    <NavLink className={linkClass} to="/books">Books</NavLink>
+                    <NavLink className={linkClass} to="/add-book">Add Book</NavLink>
                 </nav>
                 </div>
 
