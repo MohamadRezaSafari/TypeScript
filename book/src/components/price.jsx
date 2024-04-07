@@ -1,4 +1,4 @@
-
+import { NavLink } from "react-router-dom";
 
 function Price(props){
     return(
@@ -16,7 +16,7 @@ function Price(props){
                         <li>Email support</li>
                         <li>Help center access</li>
                         </ul>
-                        <button type="button" className="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                        <NavLink type="button" className="w-100 btn btn-lg btn-outline-primary">Detail</NavLink>
                     </div>
                 </div>
             </div>
