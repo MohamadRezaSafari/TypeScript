@@ -21,7 +21,6 @@ function Prices(){
                 SetLoader(false);
             }
         }
-
         fetchBooks();
     }, []);
 
@@ -32,13 +31,8 @@ function Prices(){
                     {books.map((book) => (
                         <Price key={book.id} book={book}></Price>
                     ))}
-                    {/* <Price color="bg-primary"></Price>
-                    <Price color="bg-info"></Price>
-                    <Price></Price> */}
                 </div>
-
                 <ComparePlan></ComparePlan>
-                
             </main>
         </>
     );
