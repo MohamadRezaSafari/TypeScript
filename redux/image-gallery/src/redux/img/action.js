@@ -29,7 +29,7 @@ const fetchImageList = () => {
   return (dispatch) => {
     dispatch(fetchImageList);
     axios
-      .get("")
+      .get('https://jsonplaceholder.typicode.com/photos')
       .then((res) => {
         let _list = res.data;
         dispatch(fetchImgSuccess(_list));
