@@ -1,1 +1,17 @@
-<p>products works!</p>
+<p>products</p>
+
+
+
+<div>
+    <input type="text" [(ngModel)]="product.name" />
+</div>
+
+
+
+
+<div class="col-4" *ngIf="isSidePanelVisible">
+    <p [ngClass]="isSidePanelVisible ? 'alert alert-danger' : 'alert alert-primary'">Hi</p>
+    <ngb-alert type="success">dfgdf</ngb-alert>
+</div>
+
+<button (click)="toggleAlert()">Toggle</button>
