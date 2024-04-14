@@ -2,6 +2,7 @@ export const Constant = {
     API_END_POINT: 'https://jsonplaceholder.typicode.com/',
     METHODS: {
         GET_ALL_PRODUCT: 'albums',
-        GET_ALL_CATEGORY: 'users'
+        GET_ALL_CATEGORY: 'users',
+        POST_ALL_PRODUCT: 'posts',
     }
 }

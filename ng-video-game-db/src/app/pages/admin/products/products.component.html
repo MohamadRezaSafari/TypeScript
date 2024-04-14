@@ -1,12 +1,20 @@
 <p>products</p>
 
 
-
-<div>
-    <input type="text" [(ngModel)]="product.name" />
+<div *ngFor="let product of productList">
+    <p>{{ product.name }}</p>
 </div>
 
 
+<select [(ngModel)]="product.id">
+    <option *ngFor="let cat of categoryList" [value]="cat.id">{{ cat.title }}</option>
+</select>
+
+
+<div>
+    <input type="text" [(ngModel)]="product.name" />
+    <button (click)="onSave()">Submit</button>
+</div>
 
 
 <div class="col-4" *ngIf="isSidePanelVisible">

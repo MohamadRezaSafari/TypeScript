@@ -15,20 +15,41 @@ export class ProductsComponent implements OnInit {
   isSidePanelVisible: boolean = true;
   product: any = {
     id: 0,
-    name: '',
+    title: '',
   };
   categoryList: any[] = [];
+  productList: any[] = [];
 
   constructor(private productSrv: ProductService) {}
 
   ngOnInit(): void {
-    this.getAllCategory();
+    this.getCategories();
+    this.getProducts();
   }
 
-  getAllCategory() {
-    this.productSrv.getAllProducts().subscribe((res: any) => {
-      this.categoryList = res.data;
-    });
+  getProducts() {
+    this.productSrv.getCategories().subscribe((res: any) => {
+      this.productList = res;
+    })
+  }
+
+  getCategories() {
+    this.productSrv.getProducts().subscribe((res: any) => {
+      this.categoryList = res;
+      // console.log(res[3]);
+    })
+  }
+
+  onSave() {
+    this.productSrv.saveProduct(this.product).subscribe((res: any) => {
+      debugger;
+      if(res.result) {
+        alert('Product created');
+        this.getProducts();
+      }else {
+        alert(res.message)
+      }
+    })
   }
 
   toggleAlert() {
