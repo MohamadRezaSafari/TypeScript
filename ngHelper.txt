@@ -1,0 +1,1 @@
+npx -p @angular/cli@16.2.13 ng new ng-blog --routing --style=scss
