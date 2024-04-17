@@ -1,6 +1,6 @@
 <h3>Report an issue</h3>
-<button class="btn btn-primary" type="submit">Create</button>
-<form clrForm *ngIf="issueForm" [formGroup]="issueForm">
+<button class="btn btn-primary" type="button" (click)="formClose.emit()">Create</button>
+<form clrForm *ngIf="issueForm" [formGroup]="issueForm" (ngSubmit)="addIssue()">
   <clr-input-container>
     <label>Title</label>
     <input clrInput formControlName="title" />
@@ -28,4 +28,5 @@
       <option value="Documentation">Documentation</option>
     </select>
   </clr-select-container>
+  <button class="btn btn-primary" type="submit">Create</button>
 </form>

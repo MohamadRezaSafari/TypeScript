@@ -1,0 +1,7 @@
+
+
+<form [formGroup]="tripForm">
+    <input formControlName="name" />
+
+    <button (click)="addTrip()" [disabled]="!tripForm.valid">Add Trip</button>
+</form>

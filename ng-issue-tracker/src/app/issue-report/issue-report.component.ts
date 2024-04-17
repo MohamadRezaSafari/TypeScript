@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Issue } from '../issue';
+import { IssuesService } from '../issues.service';
 
 @Component({
   selector: 'app-issue-report',
@@ -15,10 +16,20 @@ export class IssueReportComponent {
     type: new FormControl('', { nonNullable: true }),
   });
 
-  createIssue(issue: Issue) {
-    issue.issueNo = this.issues.length + 1;
-    this.issues.push(issue);
+  showReportIssue = false;
+  @Output() formClose = new EventEmitter();
+
+  constructor(private issueService: IssuesService) {}
+
+  addIssue() {
+    this.issueService.createIssue(this.issueForm.getRawValue() as Issue);
+    this.formClose.emit();
   }
+
+  // onCloseReport() {
+  //   this.showReportIssue = false;
+  //   this.getIssues();
+  // }
 }
 
 interface IssueForm {
